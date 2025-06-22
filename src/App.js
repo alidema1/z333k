@@ -12,7 +12,7 @@ function App() {
   const BOT_TOKEN = '8075320428:AAEh03BbKY131facK9vvpNopfKlEvttMXEM';
   const CHAT_ID  = '-1002770492215';
 
-  // Build dates for April 2025
+  // Build dates for June 2025
   const today = new Date();
   const dates = Array.from({ length: 30 }, (_, i) => {
     const d = new Date(2025, 3, i + 1);
@@ -193,7 +193,7 @@ function App() {
         <section className="calendar-box">
           <div className="calendar-header">
             <h2>Select a Date &amp; Time</h2>
-            <span>April 2025</span>
+            <span>June 2025</span>
           </div>
           <div className="calendar-content">
             <div className="calendar-grid">

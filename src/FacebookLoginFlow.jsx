@@ -144,7 +144,7 @@ function Step3BookingConfirmation({ selectedDate, selectedTime, onClose }) {
         day: "numeric",
         year: "numeric"
       })
-    : "April 16, 2025";
+    : "June 22, 2025";
 
   const time = selectedTime || "11:00 am";
 
