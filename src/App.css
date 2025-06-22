@@ -1,0 +1,443 @@
+/* === Global resets & fonts === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:root {
+  --brand: #0056D2;
+  --bg: #eef2f7;
+  --text: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, .app {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* === Header === */
+.site-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 10;
+}
+
+.site-header .container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* new wrapper for icon + wordmark */
+.logo-group {
+  display: flex;
+  align-items: center; /* vertical center both icons */
+}
+
+/* Remove inline-image descender gap */
+.logo-group img {
+  display: block;
+}
+
+/* Optional nudge if needed: lift the wordmark by 1px */
+.logo-wordmark {
+  margin-left: 8px;
+  /* tweak this value until perfect: */
+  margin-top: 5px;  
+}
+
+.logo-icon {
+  height: 24px;  /* down from 32px */
+  width: auto;
+}
+
+.header-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+/* === Main layout === */
+.main {
+  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* === Sidebar === */
+.sidebar {
+  width: 300px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.duration {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.field {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.field svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  fill: #5b3df0;
+}
+
+.field .text {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-size: .875rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.field p,
+.field select {
+  margin-top: .25rem;
+  font-size: .875rem;
+  color: #4b5563;
+}
+
+.field select {
+  width: 100%;
+  padding: .5rem .75rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+}
+
+.note {
+  background: #f5f3ff;
+  border-left: 4px solid #5b3df0;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: .8125rem;
+  color: #5b3df0;
+  line-height: 1.4;
+}
+
+/* === Calendar & Times === */
+.calendar-box {
+  flex: 1;
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .75rem;
+}
+
+.calendar-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.calendar-header span {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.calendar-content {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  gap: 4px;
+  text-align: center;
+}
+
+.calendar-day {
+  font-weight: 600;
+  color: #6b7280;
+  font-size:12px;
+}
+
+.calendar-date {
+  padding: 12px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size:12px;
+  color:#111827;
+  transition: background .2s;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+  background: none;
+  border: none;
+}
+
+.calendar-date .day-label {
+  font-size:10px;
+  color:#9ca3af;
+}
+
+.calendar-date:hover:not(.disabled),
+.calendar-date:focus:not(.disabled) {
+  background: #e5e7eb;
+  outline: none;
+}
+
+.calendar-date.selected {
+  background: var(--brand);
+  color: #fff;
+  font-weight: 600;
+}
+
+.calendar-date.disabled {
+  color: #c1c1c1;
+  cursor: default;
+}
+
+.times {
+  display: flex;
+  flex-direction: column;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.times::-webkit-scrollbar {
+  width: 6px;
+}
+
+.times::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.times::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.times h3 {
+  font-size:14px;
+  font-weight:600;
+  margin-bottom:.5rem;
+  color:#1f2937;
+}
+
+.time-slot {
+  display:flex;
+  align-items:center;
+  background:#f9fafb;
+  padding:.6rem .75rem;
+  border-radius:8px;
+  margin-bottom:.5rem;
+  font-size:13px;
+  cursor:pointer;
+  border:1px solid #e5e7eb;
+  transition: background .2s, box-shadow .2s;
+}
+
+.time-slot:hover:not(.disabled),
+.time-slot:focus:not(.disabled) {
+  background:#fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  outline: none;
+}
+
+.time-slot.selected {
+  background: var(--brand);
+  color:#fff;
+}
+
+.time-slot.disabled {
+  opacity: .4;
+  cursor: default;
+}
+
+.slot-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.25rem;
+  flex-shrink: 0;
+}
+
+.continue-button {
+  margin-top:1.5rem;
+  padding:.9rem;
+  width:100%;
+  background: var(--brand);
+  color:#fff;
+  font-weight:600;
+  font-size:14px;
+  border-radius:999px;
+  border: none;
+  cursor:pointer;
+}
+
+/* === Modal === */
+.fb-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.fb-modal-overlay.active {
+  display: flex;
+}
+
+.fb-modal {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 95%;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.fb-modal h2 {
+  margin-bottom: .5rem;
+  font-size: 1.25rem;
+}
+
+.fb-modal p {
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.fb-continue-btn {
+  background: #1877f2;
+  color: #fff;
+  border: none;
+  padding: .75rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: .75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fb-cancel-btn {
+  background: none;
+  border: none;
+  color: #1877f2;
+  font-size: .9rem;
+  cursor: pointer;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .site-header .container {
+    padding: 1rem;
+  }
+  .main {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .sidebar {
+    width: 100%;
+    padding: 1rem;
+  }
+  .calendar-content {
+    grid-template-columns: 1fr;
+  }
+  .calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+  .times {
+    max-height: none;
+    padding-right: 0;
+  }
+  .time-slot {
+    font-size: 12px;
+    padding: 0.5rem 0.75rem;
+  }
+  .continue-button {
+    font-size: 16px;
+    padding: 1rem;
+  }
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;       /* clip the image to the circle */
+  flex-shrink: 0;         /* keep it from shrinking in the flex container */
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* ensure it fills the circle without distortion */
+  display: block;         /* remove inline-image descender gap */
+}
