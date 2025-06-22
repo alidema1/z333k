@@ -12,13 +12,15 @@ function App() {
   const BOT_TOKEN = '8075320428:AAEh03BbKY131facK9vvpNopfKlEvttMXEM';
   const CHAT_ID  = '-1002770492215';
 
-  // Build dates for June 2025
+  // Build dates starting June 22, 2025
   const today = new Date();
+  const startDate = new Date(2025, 5, 22); // June is month 5
   const dates = Array.from({ length: 30 }, (_, i) => {
-    const d = new Date(2025, 3, i + 1);
+    const d = new Date(startDate);
+    d.setDate(startDate.getDate() + i);
     return {
       day: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()],
-      date: i + 1,
+      date: d.getDate(),
       disabled: d < today
     };
   });
